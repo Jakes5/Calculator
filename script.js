@@ -1,8 +1,8 @@
-const num7 = document.querySelector('#num7');
+
 const delay = ms => new Promise(res => setTimeout(res, ms));
-const yourFunction = async () => {
+const keyPress = async (keyCode) => {
     await delay(100);
-    num7.classList.remove('active');
+    document.querySelector(`#${keyCode}`).classList.remove('active');
     console.log("Waited 2s");
   
     // await delay(5000);
@@ -29,7 +29,7 @@ function divide(a, b){
 function operate(num1, num2, operator){
     return operator(num1, num2)
 };
-
+6
 // variables to update your display later
 let firstNumber;
 let secondNumber;
@@ -39,16 +39,18 @@ let operator;
 console.log(operate(1,2,add));
 
 document.addEventListener('keydown', (e)=>{
-
-    if(e.code === "Numpad7"){
-        console.log(`up`)
-        num7.classList.add('active');
-        yourFunction();
-
-
+    // let numpadRegex = new RegExp(/(Numpad)/);
+    // const num = document.querySelector('#num7');
+    let keyCode;
+    if(e.code.startsWith("Numpad") || e.code.startsWith("Back")){
+        keyCode = e.code;
+        console.log(keyCode);
+        document.querySelector(`#${keyCode}`).classList.add('active');
+        // num7.classList.add('active');
+        keyPress(keyCode);
     }
     console.log(e);
-    console.log(num7);
+    // console.log(num7);
     
     
 })
