@@ -63,6 +63,10 @@ h1{
 
 }
 
+.deletions{
+    /* SOLUTION */
+    flex: 1;
+}
 
 .buttons:hover{
  cursor: pointer;   
